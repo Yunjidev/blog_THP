@@ -1,0 +1,22 @@
+<!-- app/views/layouts/application.html.erb -->
+
+<nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="text-white font-bold text-xl">
+      MonBlog
+    </div>
+
+    <div class="flex space-x-4">
+      <%= link_to "Accueil", root_path, class: "text-white" %>
+      <%= link_to "Articles", articles_path, class: "text-white" %>
+      <%= link_to "Nouvel article", new_article_path, class: "text-white" %>
+
+      <% if user_signed_in? %>
+        <%= link_to "Mon compte", user_path(current_user), class: "text-white" %>
+        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "text-white", data: { confirm: "Êtes-vous sûr de vouloir vous déconnecter?" } %>
+      <% else %>
+        <%= link_to "Se connecter", new_user_session_path, class: "text-white" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

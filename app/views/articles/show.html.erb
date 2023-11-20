@@ -1,0 +1,13 @@
+<!-- app/views/articles/show.html.erb -->
+
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <h2><%= @article.title %></h2>
+  <p><%= @article.content %></p>
+</div>
+
+<div>
+  <%= link_to "Edit this article", edit_article_path(@article) %> |
+  <%= link_to "Back to articles", articles_path %>
+</div>

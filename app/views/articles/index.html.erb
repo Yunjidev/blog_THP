@@ -1,0 +1,14 @@
+<h1 class="text-3xl font-semibold mb-4">Articles</h1>
+
+<%= link_to "Nouvel article", new_article_path, class: "bg-blue-500 text-white font-bold py-2 px-4 rounded" %>
+
+<button id="countButton" class="bg-green-500 text-white font-bold py-2 px-4 rounded">Compter les articles</button>
+
+<div class="mt-4">
+  <% @articles.each do |article| %>
+    <div class="article border-b mb-4 pb-2">
+      <h2 class="text-xl font-semibold"><%= article.title %></h2>
+      <p class="text-gray-600"><%= article.content %></p>
+    </div>
+  <% end %>
+</div>

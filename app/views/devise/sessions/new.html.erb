@@ -1,0 +1,28 @@
+<div class="flex items-center justify-center h-screen">
+  <div class="bg-white shadow-md rounded-md p-8 max-w-md w-full">
+    <h2 class="text-xl font-bold mb-4">Connexion</h2>
+
+    <div class="mb-4">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      
+        <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-2 mt-4" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="mt-4">
+            <%= f.check_box :remember_me, class: "mr-2 leading-tight" %>
+            <%= f.label :remember_me, class: "text-sm" %>
+          </div>
+        <% end %>
+
+        <div class="mt-6">
+          <%= f.submit "Connexion", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

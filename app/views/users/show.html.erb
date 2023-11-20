@@ -1,0 +1,23 @@
+<!-- app/views/users/show.html.erb -->
+
+<div class="container mx-auto mt-8">
+  <h2 class="text-2xl font-semibold mb-4">Mon compte</h2>
+
+  <p class="mb-4">Bienvenue, <%= current_user.email %></p>
+
+  <h3 class="text-xl font-semibold mb-2">Mes articles</h3>
+
+  <ul class="list-disc ml-4">
+    <% @articles.each do |article| %>
+      <li class="mb-2">
+        <span class="<%= article.private ? 'text-red-500' : 'text-green-500' %> font-semibold">
+          <%= article.title %> - <%= article.private ? 'Privé' : 'Public' %>
+        </span>
+
+        - <%= link_to "Modifier la confidentialité", update_article_privacy_user_path(current_user, article_id: article.id, private: !article.private), method: :patch, class: "text-blue-500 underline" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Retour à l'accueil", root_path, class: "mt-4 text-blue-500 underline" %>
+</div>
